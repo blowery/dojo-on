@@ -1,0 +1,23 @@
+h1. dojo.on()
+
+p. A simple Dojo plugin to enable an easiest to read format for dojo.connect.
+
+<pre><code>
+  // before
+  var handle = dojo.connect(dojo.byId("someNode"), "click", function(evt) {
+    evt.preventDefault();
+    dojo.style(evt.currentTarget, "color", "red");
+  });
+  
+  dojo.disconnect(handle);
+  
+  // with dojo.on()
+  
+  dojo.on("someNode", "click")
+    .prevent()
+    .then(function(evt){
+      dojo.style(evt.currentTarget, "color", "red");
+    })
+    .disconnect();
+               
+</pre></code>
