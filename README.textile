@@ -1,6 +1,6 @@
 h1. dojo.on()
 
-p. A simple Dojo plugin to enable an easiest to read format for dojo.connect.
+p. A simple Dojo plugin to enable an easier to read format for dojo.connect.
 
 <pre><code>
   // before
@@ -19,5 +19,14 @@ p. A simple Dojo plugin to enable an easiest to read format for dojo.connect.
       dojo.style(evt.currentTarget, "color", "red");
     })
     .disconnect();
+    
+  // with dojo.eat() and some friends
+  // dojo.eat() is just like dojo.on().prevent()
+  
+  dojo.eat("someNode", "click")
+      .then(function(evt) { 
+        dojo.style(evt.currentTarget, "color", "red"); 
+      })
+      .disconnect();
                
 </pre></code>

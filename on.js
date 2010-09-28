@@ -49,7 +49,11 @@
     id = dojo.byId(id);
     if(!id) throw new Error("No node with id '" + id + "' found");
     return new CallChain(id, name);
-  }
+  };
+  
+  dojo.eat = function(id, name) {
+    return dojo.on(id, name).prevent();
+  };
   
 })();
 
